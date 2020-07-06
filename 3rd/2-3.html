@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Burgundy</title>
+    <style>
+        .logo img{
+            max-width: 100%;
+        }
+        .box{
+            margin: 0px auto;
+            padding: 0;
+            width: 1050px;
+            overflow: auto;
+            font-family: Arial, sans-serif, Serif;
+            max-width: 100%;
+        }
+        .rightbox{
+            position: center;
+            float: right;
+            text-align: center;
+            padding-top: 140px;
+            font-size: 20px;
+            max-font-size: 100%;
+            max-width: 100%
+        }
+        .leftbox{
+            float: left;
+        }
+        .leftbox img{
+            max-width: 100%
+        }
+        .rightbox,.leftbox{
+            width: 450px;
+            border: 1px solid white;
+            max-width: 100%;
+        }
+        .showSlide {
+            display: none
+        }
+        .showSlide img {
+            width: 100%;
+            max-width: 100%
+        }
+        .slidercontainer {
+            max-width: 500px;
+            position: absolute;
+            margin: auto;
+        }
+        .left, .right {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+        .right {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .left:hover, .right:hover {
+            background-color: rgba(115, 115, 115, 0.8);
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        .logo{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="logo">
+    <br><br><br>
+    <a href="mainpage.html"><img src="nore%20navy%20back%20logo%20black_2.png" width="500px"/></a>
+</div>
+<div class="box">
+    <div class="rightbox">
+        <br>
+        Reservation Available: 7/10 ~ 7/13<br>
+        Sizes:&ensp;S&ensp;M&ensp;L&ensp;XL&ensp;XXL<br>
+        Price: 30,000won<br><br>
+        Sales on instagram<br><br>
+        <a href="https://www.instagram.com/nordinaryculture_official/"><img src="instagram.png.png" height="20">nordinaryculture_official</a><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="leftbox">
+        <br><br><br><br><br>
+        <div class="slidercontainer">
+            <div class="showSlide fade">
+                <img src="burgundyfront.jpg" width="500px"/>
+            </div>
+            <div class="showSlide fade">
+                <img src="burgundy.d.JPG" width="500px"/>
+            </div>
+            <div class="showSlide fade">
+                <img src="burgundyman.JPG" width="500px"/>
+            </div>
+            <div class="showSlide fade">
+                <img src="burgundywoman.jpg" width="500px"/>
+            </div>
+            <!-- Navigation arrows -->
+            <a class="left" onclick="nextSlide(-1)">❮</a>
+            <a class="right" onclick="nextSlide(1)">❯</a>
+        </div>
+
+        <script type="text/javascript">
+            var slide_index = 1;
+            displaySlides(slide_index);
+
+            function nextSlide(n) {
+                displaySlides(slide_index += n);
+            }
+
+            function currentSlide(n) {
+                displaySlides(slide_index = n);
+            }
+
+            function displaySlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("showSlide");
+                if (n > slides.length) { slide_index = 1 }
+                if (n < 1) { slide_index = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slides[slide_index - 1].style.display = "block";
+            }
+        </script>
+    </div>
+</div>
+
+</body>
+</html>
